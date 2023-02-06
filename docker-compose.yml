@@ -10,7 +10,6 @@ services:
     volumes:
       - ./api/:/app/api/
       - /app/api/dist
-      - /app/api/node_modules
     expose:
       - 3000
     ports:
