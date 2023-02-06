@@ -1,1 +1,5 @@
 .DS_Store
+
+# until I figure out how to get it to work 
+.vscode
+*.map
