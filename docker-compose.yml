@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  create-mern-app-api:
+    environment:
+      - NODE_ENV=development
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - ./api/:/app/api/
+      - /app/api/dist
+      - /app/api/node_modules
+    expose:
+      - 3000
+    ports:
+      - '3000:3000'
+    command: npm run start:watch

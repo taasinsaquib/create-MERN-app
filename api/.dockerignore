@@ -1,0 +1,13 @@
+Dockerfile
+Dockerfile.prod
+
+dist
+
+.git
+.gitignore
+
+.npm
+.vscode
+node_modules
+
+README.md
