@@ -8,9 +8,8 @@ const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
 ;
 app.get('/', (req, res) => {
-    console.log(process.env.FOO);
-    res.send('Hello, this is Express + TypeScript');
+    res.send(`Hello, this is Express + TypeScript ${process.env.FOO}`);
 });
 app.listen(port, () => {
-    console.log(`[Server]: I am running at https://localhost:${port}`);
+    console.log(`[Server]: I am running at http://localhost:${port}`);
 });
