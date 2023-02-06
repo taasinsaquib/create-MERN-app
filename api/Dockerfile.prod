@@ -1,0 +1,23 @@
+# Stage 1, compile typescript
+FROM node:alpine as Builder
+
+WORKDIR /app/api
+
+COPY package*.json ./
+COPY tsconfig.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+# Stage 2, remove dev dependencies
+FROM node:alpine as Final
+
+WORKDIR /app/api
+
+COPY --from=builder ./app/api/dist ./dist
+COPY package*.json ./
+
+RUN npm ci --only=production

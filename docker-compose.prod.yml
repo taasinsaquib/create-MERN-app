@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  create-mern-app-api:
+    environment:
+      - NODE_ENV=production
+    build:
+      context: ./api
+      dockerfile: Dockerfile.prod
+    # volumes:
+    #   - ./api/:/app/api/
+    # expose:
+    #   - 3000
+    # ports:
+    #   - '3000:3000'
+    command: node dist/index.js
