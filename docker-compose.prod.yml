@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  create-mern-app-api:
+  api:
     environment:
       - NODE_ENV=production
     build:

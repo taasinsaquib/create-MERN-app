@@ -1,7 +1,15 @@
 version: '3'
 
 services:
-  create-mern-app-api:
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - db:/data/db
+  api:
+    depends_on:
+      - mongo
     environment:
       - NODE_ENV=development
     build:
@@ -15,3 +23,6 @@ services:
     ports:
       - '3000:3000'
     command: npm run start:watch
+
+volumes:
+  db:
