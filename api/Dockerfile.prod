@@ -1,5 +1,5 @@
 # Stage 1, compile typescript
-FROM node:alpine as Builder
+FROM node:alpine as builder
 
 WORKDIR /app/api
 
@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2, remove dev dependencies
-FROM node:alpine as Final
+FROM node:alpine as prod
 
 WORKDIR /app/api
 
