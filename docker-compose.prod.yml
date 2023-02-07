@@ -24,5 +24,16 @@ services:
       - '3000:3000'
     command: node dist/index.js
 
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    volumes:
+      - ./client/src:/app/src
+    expose:
+      - 80
+    ports:
+      - '8000:80'
+
 volumes:
   db:
