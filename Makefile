@@ -1,14 +1,23 @@
-compose     := -f docker-compose.yml
-compose-prd := -f docker-compose.prod.yml
+compose     := docker-compose -f docker-compose.yml
+compose-prd := docker-compose -f docker-compose.prod.yml
 
+down:
+	docker-compose down
+
+# entire env
+dev-up:
+	$(compose) up
+
+# api
 api-dev-up:
-	docker-compose $(compose) up
-
-api-dev-down:
-	docker-compose $(compose) down
+	$(compose) up api
 
 api-prd-up:
-	docker-compose $(compose) $(compose-prd) up
+	$(compose-prd) up api
 
-api-prd-down:
-	docker-compose $(compose) $(compose-prd) down
+# client
+client-dev-up:
+	$(compose) up client
+
+client-prd-up:
+	$(compose-prd) up client
